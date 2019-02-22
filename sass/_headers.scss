@@ -1,0 +1,15 @@
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $font-weight__bold;
+}
+
+.title {
+    color: $secondary__color;
+    font-size: $font-size__xbig;
+    margin-bottom: $space__l;
+}
+
+.subtitle {
+    color: $primary__color;
+    font-size: $font-size__l;
+    margin-bottom: $space__base;
+}

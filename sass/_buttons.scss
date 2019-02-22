@@ -1,0 +1,47 @@
+@mixin btn($bg) {
+    background-color: $bg;
+    &:visited {
+        background-color: $bg;
+    }
+    &:hover {
+        background-color: lighten($bg, 5%);
+        transition: all 0.2s ease;
+    }
+    &:active, &:focus {
+        background-color: darken($bg, 5%);
+    }
+}
+
+.button, .button:visited {
+    font-size: $font-size__md;
+    color: $white;
+    text-decoration: none;
+    line-height: 1;
+    width: 100%;
+    padding: ($space__md + 0.3)  $space__l;
+    border-radius: $space__xs;
+    border: 0 none;
+    outline: 0;
+    box-shadow: 0 0 0 0 transparent, inset 0 0 0 0 transparent;
+    background-color: $tertiary__color;
+    cursor: pointer;
+    &:hover, &:active, &:focus {
+        border: 0 none;
+        outline: 0;
+        box-shadow: 0 0 0 0 transparent, inset 0 0 0 0 transparent;
+    }
+    &:hover {
+        box-shadow: 0 1px 5px 0 rgba($color: $main__color, $alpha: 0.5);
+    }
+}
+
+.button-primary {
+    @include btn($primary__color);
+}
+
+@include desktop {
+    .button, .button:visited {
+        width: auto;
+        padding: $space__md  $space__l;
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Form Validation HTML5</title>
+    <meta name="description" content="Form Validation HTML5">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.png" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="site">
+    <header class="header">
+        HTML<svg xmlns="http://www.w3.org/2000/svg" class="icon-html5" viewBox="-27 0 512 512"><path fill="#fd982c" d="M0 0l44.266 461.5 186.48 50.5 183.844-50.5L458.855 0zm0 0"/><path fill="#fa502e" d="M230.746 0v512l183.844-50.5L458.855 0zm0 0"/><path fill="#fff" d="M367.172 159.379l-195.86-.004 3.278 35.828h191.652l-15.488 200.192-120.172 34.953-128.984-40.118v-81.183h80.125v24.18l48.875 15.101 46.308-15.113 3.371-59.942H102.84L82.809 82.31h284.363zm0 0"/><g fill="#deecf1"><path d="M230.746 82.309h136.426v77.07H230.746zm0 0M280.277 273.273l-3.37 59.942-46.16 15.066v82.02l120.007-34.906 15.488-200.192H230.746v78.07zm0 0"/></g></svg>
+        Form Validation
+    </header>
+    <nav class="menu">
+        <span class="menu-item active">Create Account</span>
+        <a href="address.html" class="menu-item" title="Address">Address</a>
+        <a href="edit-account.html" class="menu-item" title="Edit Account">Edit Account</a>            
+    </nav>
+
+    <main class="content">
+        <section class="section">
+            <h1 class="title">Create Account</h1>
+            <form class="form" autocomplete="on">
+                <fieldset class="fieldset">
+                    <div class="field">
+                        <label for="name">Full Name</label>
+                        <input type="text" name="name" id="name" class="input" placeholder="e.g. Ada Byron" pattern="[A-Za-z ']{4,}" title="Name must be at least 4 characters" value="" required autofocus>
+                        <span class="error">Must be at least 4 characters</span>
+                    </div>
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" class="input" placeholder="e.g. ada@gmail.com" value="" pattern="^([a-zA-Z0-9_\-\.+]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" title="Enter a valid email, e.g. ada.byron@gmail.com" required>
+                        <span class="error">Enter a valid email, e.g. ada@gmail.com</span>
+                    </div>
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" maxlength="20" id="password" class="input" autocomplete="off" placeholder="At least 6 characters" value="" pattern="^(?=.*[A-Za-z])(?=.*[\d!@#$%^&*_<>?|])[A-Za-z\d!@#$%^&*_<>?|]{6,40}$" title="Password must be at least 6 characters, at least 1 letter, a number or symbol" required>
+                        <span class="error">Enter a valid password</span>
+                        <span class="info-pass">
+                            <span class="req-chars">At least <strong>6 characters</strong></span><span class="req-letter">, at least <strong>1 letter</strong></span><span class="req-number">, a <strong>number</strong> or <strong>symbol</strong></span>
+                        </span>
+                    </div>
+                </fieldset>
+                <div class="actions">
+                    <button type="submit" class="action button button-primary">Create Account</button>
+                </div>
+                <div class="agreement">By creating an account, you agree that you have read and accepted our <a href="#" title="User Agreement">User Agreement</a> and <a href="#" title="Privacy Policy">Privacy Policy</a>.</div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>&copy; Glauco Mariano 2019</span>
+    </footer>
+</body>
+</html>

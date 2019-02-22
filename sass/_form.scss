@@ -1,0 +1,230 @@
+// Components
+.label {
+    display: block;
+    color: $secondary__color;
+    font-size: $font-size__base;
+    font-weight: $font-weight__bold;
+    margin-bottom: $space__xs;
+    &[data-label] {
+        &:after {
+            content: attr(data-label);
+            display: inline-block;
+            font-weight: $font-weight__regular;
+            padding-left: $space__xs;
+        }
+    }
+}
+
+@mixin validation-field($type, $icon) {
+    border-color: $type;
+    box-shadow: 0 0 1px 0 $type, inset 0 0 0 0 transparent;
+    background-repeat: no-repeat;
+    background-image: $icon;
+    background-size: 15px;
+    background-position-y: center;
+    background-position-x: calc(100% - 10px);
+}
+
+.input-style {
+    display: block;
+    border: 1px solid $tertiary__color;
+    height: 32px;
+    width: 100%;
+    background-color: $white;
+    padding: $space__s $space__md;
+    margin-bottom: $space__s;
+}
+
+span.label {
+    margin-bottom: $space__md;
+}
+
+// Form
+.fieldset {
+    border-top: 1px solid lighten($tertiary__color, 15%);
+    padding-top: $space__base;
+    &:first-child {
+        border: 0 none;
+        padding-top: 0;
+    }
+}
+.legend {
+    @extend .subtitle;
+    padding: 0;
+    margin-bottom: $space__base;
+    width: 100%;
+    float: left;
+}
+.form {
+    border: 1px solid $tertiary__color;
+    border-radius: $space__s;
+    padding: $space__base;
+    @include phone {
+        padding: $space__md;
+    }
+    &:invalid {
+        .action.button {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+    &:valid {
+        .action.button {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+.field {
+    padding-bottom: $space__base;
+    position: relative;
+    &:first-of-type {
+        clear: both;
+    }
+    label {
+        @extend .label;
+    }
+    .field {
+        .info {
+            font-weight: $font-weight__regular;
+        }
+        padding-bottom: 0;
+    }
+}
+.input {
+    @extend .input-style;
+    &:focus, &:focus:required:invalid {
+        border-color: $focus__color;
+        box-shadow: 0 0 1px 0 $focus__color, inset 0 0 0 0 transparent;
+        outline: 0;
+    }
+    &:required {
+        &:valid {
+            @include validation-field($success__color, url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 442.533 442.533'%3E%3Cpath fill='%2334a853' d='M434.539 98.499l-38.828-38.828c-5.324-5.328-11.799-7.993-19.41-7.993-7.618 0-14.093 2.665-19.417 7.993L169.59 247.248l-83.939-84.225c-5.33-5.33-11.801-7.992-19.412-7.992-7.616 0-14.087 2.662-19.417 7.992L7.994 201.852C2.664 207.181 0 213.654 0 221.269c0 7.609 2.664 14.088 7.994 19.416l103.351 103.349 38.831 38.828c5.327 5.332 11.8 7.994 19.414 7.994 7.611 0 14.084-2.669 19.414-7.994l38.83-38.828L434.539 137.33c5.325-5.33 7.994-11.802 7.994-19.417.004-7.611-2.669-14.084-7.994-19.414z'/%3E%3C/svg%3E"));
+            padding-right: $space__l;
+        }
+    }
+    &:invalid {
+        box-shadow: 0 0 0 0 transparent;
+        &:not(:focus):not(:placeholder-shown) {
+            @include validation-field($error__color, url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.9 21.9'%3E%3Cpath fill='%23ea4335' d='M14.1 11.3c-.2-.2-.2-.5 0-.7l7.5-7.5c.2-.2.3-.5.3-.7s-.1-.5-.3-.7L20.2.3c-.2-.2-.5-.3-.7-.3-.3 0-.5.1-.7.3l-7.5 7.5c-.2.2-.5.2-.7 0L3.1.3C2.9.1 2.6 0 2.4 0s-.5.1-.7.3L.3 1.7c-.2.2-.3.5-.3.7s.1.5.3.7l7.5 7.5c.2.2.2.5 0 .7L.3 18.8c-.2.2-.3.5-.3.7s.1.5.3.7l1.4 1.4c.2.2.5.3.7.3s.5-.1.7-.3l7.5-7.5c.2-.2.5-.2.7 0l7.5 7.5c.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.2-.2.3-.5.3-.7s-.1-.5-.3-.7l-7.5-7.5z'/%3E%3C/svg%3E"));
+            padding-right: $space__l;
+            & + .error {
+                display: block;
+            }
+        }
+    }
+
+}
+select.input {
+    @include validation-field($tertiary__color, url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 255 255'%3E%3Cpath fill='%23333' d='M0 63.75l127.5 127.5L255 63.75z'/%3E%3C/svg%3E"));
+    padding-right: $space__l;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.info {
+    color: $info__color;
+    font-size: $font-size__xs;
+}
+.info-pass {
+    color: $secondary__color;
+    font-size: $font-size__s;
+}
+.error {
+    text-align: right;
+    color: $error__color;
+    font-size: $font-size__xs;
+    position: absolute;
+    right: 0;
+    top: $space__xs;
+    z-index: 1;
+    display: none;
+}
+
+// Radio and Checkbox
+.input-selection {
+    display: none;
+    & + label {
+        padding-left: $space__base + $space__s;
+        font-weight: $font-weight__regular;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        line-height: 1.2;
+        position: relative;
+        margin-bottom: $space__md;
+        &:focus {
+            border: 0 none;
+            box-shadow: 0 0 0 0 transparent, inset 0 0 0 0 transparent;
+            outline: 0;
+            &:before {
+                border-color: $focus__color;
+                box-shadow: 0 0 1px 0 $focus__color, inset 0 0 0 0 transparent;
+            }
+        }
+        &:before {
+            content: "";
+            display: block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid $tertiary__color;
+            box-shadow: 0 0 1px 0 $tertiary__color, inset 0 0 0 0 transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+    &:checked + label:before {
+        border-color: $focus__color;
+        box-shadow: 0 0 1px 0 $focus__color, inset 0 0 0 0 transparent;
+        background: $focus__color url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 442.533 442.533'%3E%3Cpath fill='%23ffffff' d='M434.539 98.499l-38.828-38.828c-5.324-5.328-11.799-7.993-19.41-7.993-7.618 0-14.093 2.665-19.417 7.993L169.59 247.248l-83.939-84.225c-5.33-5.33-11.801-7.992-19.412-7.992-7.616 0-14.087 2.662-19.417 7.992L7.994 201.852C2.664 207.181 0 213.654 0 221.269c0 7.609 2.664 14.088 7.994 19.416l103.351 103.349 38.831 38.828c5.327 5.332 11.8 7.994 19.414 7.994 7.611 0 14.084-2.669 19.414-7.994l38.83-38.828L434.539 137.33c5.325-5.33 7.994-11.802 7.994-19.417.004-7.611-2.669-14.084-7.994-19.414z'/%3E%3C/svg%3E") no-repeat center center;
+        background-size: 12px;
+        opacity: 1;
+        transition: background-color .3s ease;
+    }
+    &.radio {
+        & + .label:before {
+            border-radius: 100%;
+        }
+        &:checked + label {
+            &:before {
+                background-image: none;
+            }
+            &:after {
+                content: "";
+                display: block;
+                width: 8px;
+                height: 8px;
+                background-color: $white;
+                border-radius: 100%;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.input-options {
+        & ~ .field {
+            display: none;
+        }
+        &:checked {
+            & ~ .field {
+                display: block;
+            }
+        }
+    }
+}
+.actions {
+    text-align: center;
+}
+.agreement {
+    padding-top: $space__base;
+    line-height: 1.2;
+    font-size: $font-size__s;
+}

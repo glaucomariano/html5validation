@@ -1,0 +1,41 @@
+// Colors
+$main__color: #3c4043;
+$primary__color: #4285f4;
+$secondary__color: #666;
+$tertiary__color: #ccc;
+
+$focus__color: #4285f4;
+$warning__color: #fbbc05;
+$error__color: #ea4335;
+$success__color: #34a853;
+$info__color: #999;
+
+$white: #fff;
+
+// Font
+$font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+
+$font-weight__regular: 400;
+$font-weight__bold: 700;
+
+// *All units are based on body font-size 100%.
+$font-size__base: 1em; 
+$font-size__xs: 0.75em; 
+$font-size__s: 0.875em; 
+$font-size__md: 1.125em; 
+$font-size__l: 1.25em; 
+$font-size__xl: 1.5em; 
+$font-size__big: 1.75em; 
+$font-size__xbig: 2em; 
+
+// Spacing
+$space__base: 1.25rem; 
+$space__xs: 0.1875rem; 
+$space__s: 0.3125rem;
+$space__md: 0.625rem; 
+$space__l: 1.875rem; 
+
+// Breakpoints
+$phone-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1024px;

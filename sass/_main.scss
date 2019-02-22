@@ -1,0 +1,98 @@
+html {
+    height: 100%;
+}
+body {
+    color: $main__color;
+    font-family: $font-family;
+    font-size: $font-size__base;
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+a, a:visited {
+    color: $primary__color;
+    &:hover {
+        color: darken($primary__color, 10%)
+    }
+    &:active, &:focus {
+        color: lighten($primary__color, 10%)
+    }
+}
+
+.header {
+    font-size: $font-size__big;
+    text-align: center;
+    color: $white;
+    padding: $space__md;
+    background-color: $primary__color;
+    .icon-html5 {
+        font-size: $font-size__big;
+        width: 1ch;
+        height: 1ch;
+        vertical-align: top;
+    }
+    @include phone {
+        font-size: 1.5em;
+    }
+    animation-name: translateDown;
+    animation-duration: 500ms;
+}
+
+.menu {
+    text-align: center;
+    box-shadow: 0 2px 6px 0 rgba($main__color, 0.1), inset 0 -1px 0 0 lighten($tertiary__color, 10%);
+    animation: opacity 500ms ease-in;
+    .menu-item, .menu-item:visited {
+        color: $main__color;
+        display: inline-block;
+        padding: $space__base 0;
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        margin: 0 $space__md;
+        @include phone {
+            margin: 0 $space__s;
+        }
+        &:hover, &:focus, &:active {
+            color: $main__color;
+            border-color: $main__color;
+            opacity: .5;
+            transition: all ease-in .1s;
+        }
+        &.active {
+            border-color: $primary__color;
+        }
+    }
+}
+
+.content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    animation: opacity 500ms ease-in;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+}
+
+.section {
+    max-width: 460px;
+    width: 100%;
+    padding: $space__base;
+    @include phone {
+        padding: $space__base $space__md;
+    }
+    margin: 0 auto;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: $space__base;
+    animation: opacity 1s linear;
+    flex-shrink: 0;
+}
